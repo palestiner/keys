@@ -55,9 +55,9 @@
                 <column id="name"/>
                 <column id="input"/>
                 <column id="project"/>
-                <column id="qas"/>
-                <column id="dev"/>
-                <column id="prd"/>
+                <column id="qas" align="CENTER"/>
+                <column id="dev" align="CENTER"/>
+                <column id="prd" align="CENTER"/>
             </columns>
             <simplePagination/>
             <buttonsPanel id="buttonsPanel"

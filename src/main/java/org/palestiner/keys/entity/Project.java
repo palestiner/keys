@@ -7,8 +7,8 @@ import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.UUID;
 
@@ -37,17 +37,17 @@ public class Project {
 
     @Column(name = "QAS", nullable = false)
     @NotNull(message = "{msg://org.palestiner.keys.entity/KeyInfo.NotNull}")
-    @Min(value = 32, message = "{msg://org.palestiner.keys.entity/Project.Min}")
+    @Size(min = 32, max = 32, message = "{msg://org.palestiner.keys.entity/Project.Min}")
     private String qas;
 
     @Column(name = "DEV", nullable = false)
     @NotNull(message = "{msg://org.palestiner.keys.entity/KeyInfo.NotNull}")
-    @Min(value = 32, message = "{msg://org.palestiner.keys.entity/Project.Min}")
+    @Size(min = 32, max = 32, message = "{msg://org.palestiner.keys.entity/Project.Min}")
     private String dev;
 
     @Column(name = "PRD", nullable = false)
     @NotNull(message = "{msg://org.palestiner.keys.entity/KeyInfo.NotNull}")
-    @Min(value = 32, message = "{msg://org.palestiner.keys.entity/Project.Min}")
+    @Size(min = 32, max = 32, message = "{msg://org.palestiner.keys.entity/Project.Min}")
     private String prd;
 
     public Date getDeletedDate() {
