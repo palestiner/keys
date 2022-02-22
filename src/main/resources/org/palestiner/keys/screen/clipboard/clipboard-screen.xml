@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://clipboardScreen.caption">
+    <facets>
+        <clipboardTrigger id="clipboardTrigger"
+                          button="copy"
+                          input="value"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <dialogMode modal="true"
+                forceDialog="true"
+                width="AUTO"
+                height="AUTO" closeable="true"/>
+    <layout spacing="true" width="AUTO" expand="value">
+        <textField id="value"/>
+        <button id="copy" caption="Copy and close"/>
+    </layout>
+</window>

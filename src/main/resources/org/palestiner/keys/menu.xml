@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://jmix.io/schema/ui/menu">
+
+    <menu id="application" caption="msg://org.palestiner.keys/menu.application" insertBefore="administration">
+        <item screen="Project.browse" caption="msg://org.palestiner.keys.screen.project/projectBrowse.menu"/>
+        <item screen="KeyInfo.browse" caption="msg://org.palestiner.keys.screen.keyinfo/keyInfoBrowse.menu"/>
+    </menu>
+    <menu id="administration" caption="msg://org.palestiner.keys/menu.admin">
+        <item screen="User.browse" caption="msg://org.palestiner.keys.screen.user/UserBrowse.caption"
+              openMode="NEW_TAB"/>
+        <item screen="themeSettingsScreen" id="themeSettingsScreen"
+              caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>
+    </menu>
+
+</menu-config>

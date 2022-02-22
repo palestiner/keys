@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://keyInfoBrowse.caption"
+        focusComponent="keysInfoTable">
+    <data readOnly="true">
+        <collection id="keysInfoDc"
+                    class="org.palestiner.keys.entity.KeyInfo">
+            <fetchPlan extends="_base"/>
+            <loader id="keysInfoDl">
+                <query>
+                    <![CDATA[select e from KeyInfo e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="lookupSelectAction"
+                caption="msg:///actions.Select"
+                icon="LOOKUP_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="lookupCancelAction"
+                caption="msg:///actions.Cancel"
+                icon="LOOKUP_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="keysInfoTable" spacing="true">
+        <filter id="filter" collapsed="true"
+                dataLoader="keysInfoDl">
+            <properties include=".*"/>
+            <configurations>
+                <configuration id="propertyConfiguration"
+                               default="true"
+                               name="NameFilter">
+                    <propertyFilter property="name"
+                                    operation="CONTAINS"
+                                    operationEditable="true"/>
+                </configuration>
+            </configurations>
+        </filter>
+        <groupTable id="keysInfoTable"
+                    width="100%"
+                    dataContainer="keysInfoDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="input"/>
+                <column id="project"/>
+                <column id="qas"/>
+                <column id="dev"/>
+                <column id="prd"/>
+            </columns>
+            <simplePagination/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="keysInfoTable.create"/>
+                <button id="editBtn" action="keysInfoTable.edit"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
