@@ -2,7 +2,9 @@ package org.palestiner.keys.screen.keyinfo;
 
 import io.jmix.core.common.util.ParamsMap;
 import io.jmix.core.usersubstitution.CurrentUserSubstitution;
-import io.jmix.ui.*;
+import io.jmix.ui.Dialogs;
+import io.jmix.ui.Screens;
+import io.jmix.ui.UiComponents;
 import io.jmix.ui.component.Button;
 import io.jmix.ui.component.Component;
 import io.jmix.ui.screen.*;
@@ -25,10 +27,6 @@ public class KeyInfoBrowse extends StandardLookup<KeyInfo> {
     private SecureTool secureTool;
     @Autowired
     private MessageBundle messageBundle;
-    @Autowired
-    private Notifications notifications;
-    @Autowired
-    private Fragments fragments;
     @Autowired
     private Screens screens;
     @Autowired
