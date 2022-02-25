@@ -44,7 +44,6 @@
             </configurations>
         </filter>
         <groupTable id="keysInfoTable"
-                    fixedGrouping="true"
                     width="100%"
                     dataContainer="keysInfoDc">
             <actions>
@@ -53,10 +52,12 @@
                 <action id="remove" type="remove"/>
             </actions>
             <columns>
+                <group>
+                    <column id="project"/>
+                </group>
                 <column id="name"/>
                 <column id="description" maxTextLength="30"/>
                 <column id="input"/>
-                <column id="project" groupAllowed="true"/>
                 <column id="qas" align="CENTER"/>
                 <column id="dev" align="CENTER"/>
                 <column id="prd" align="CENTER"/>
