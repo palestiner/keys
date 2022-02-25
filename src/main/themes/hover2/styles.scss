@@ -1,8 +1,0 @@
-@import "hover2-defaults";
-@import "addons";
-@import "hover2";
-
-.hover2 {
-  @include addons;
-  @include hover2;
-}
