@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://jmix.io/schema/ui/window"
-        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
         caption="msg://keyInfoBrowse.caption"
         focusComponent="keysInfoTable">
     <data readOnly="true">
@@ -45,16 +44,19 @@
             </configurations>
         </filter>
         <groupTable id="keysInfoTable"
+                    fixedGrouping="true"
                     width="100%"
                     dataContainer="keysInfoDc">
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
             </actions>
             <columns>
                 <column id="name"/>
+                <column id="description" maxTextLength="30"/>
                 <column id="input"/>
-                <column id="project"/>
+                <column id="project" groupAllowed="true"/>
                 <column id="qas" align="CENTER"/>
                 <column id="dev" align="CENTER"/>
                 <column id="prd" align="CENTER"/>
@@ -64,6 +66,7 @@
                           alwaysVisible="true">
                 <button id="createBtn" action="keysInfoTable.create"/>
                 <button id="editBtn" action="keysInfoTable.edit"/>
+                <button id="removeBtn" action="keysInfoTable.remove"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

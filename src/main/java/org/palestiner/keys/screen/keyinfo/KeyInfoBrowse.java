@@ -1,6 +1,7 @@
 package org.palestiner.keys.screen.keyinfo;
 
 import io.jmix.core.common.util.ParamsMap;
+import io.jmix.core.usersubstitution.CurrentUserSubstitution;
 import io.jmix.ui.*;
 import io.jmix.ui.component.Button;
 import io.jmix.ui.component.Component;
@@ -30,6 +31,8 @@ public class KeyInfoBrowse extends StandardLookup<KeyInfo> {
     private Fragments fragments;
     @Autowired
     private Screens screens;
+    @Autowired
+    private CurrentUserSubstitution currentUserSubstitution;
 
     @Install(to = "keysInfoTable.qas", subject = "columnGenerator")
     private Component keysInfoTableQasColumnGenerator(KeyInfo keyInfo) {
@@ -47,7 +50,7 @@ public class KeyInfoBrowse extends StandardLookup<KeyInfo> {
         String key = keyInfo.getProject().getDev();
         button.addClickListener(clickListener(keyInfo.getInput(), key, "DEV"));
         button.setCaption(messageBundle.getMessage("keyInfoBrowse.showBtn"));
-        
+
         return button;
     }
 
@@ -62,18 +65,22 @@ public class KeyInfoBrowse extends StandardLookup<KeyInfo> {
 
     private Consumer<Button.ClickEvent> clickListener(String value, String key, String caption) {
         return clickEvent -> {
-            ClipboardScreen clipboardScreen = screens
-                    .create(ClipboardScreen.class,
+            screens.create(ClipboardScreen.class,
                             OpenMode.DIALOG,
                             new MapScreenOptions(ParamsMap.of(
                                     "message", getMessage(key, value),
                                     "caption", caption
-                            )));
-            clipboardScreen.show();
+                            )))
+                    .show();
         };
     }
 
     private String getMessage(String key, String value) {
         return secureTool.encrypt(key, value);
+    }
+
+    @Install(to = "keysInfoTable.remove", subject = "enabledRule")
+    private boolean keysInfoTableRemoveEnabledRule() {
+        return "admin".equals(currentUserSubstitution.getAuthenticatedUser().getUsername());
     }
 }

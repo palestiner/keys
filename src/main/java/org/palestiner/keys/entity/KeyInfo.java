@@ -1,10 +1,10 @@
 package org.palestiner.keys.entity;
 
-import io.jmix.core.DeletePolicy;
 import io.jmix.core.annotation.DeletedBy;
 import io.jmix.core.annotation.DeletedDate;
+import io.jmix.core.annotation.Secret;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
-import io.jmix.core.entity.annotation.OnDeleteInverse;
+import io.jmix.core.entity.annotation.SystemLevel;
 import io.jmix.core.metamodel.annotation.DependsOnProperties;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
@@ -36,6 +36,11 @@ public class KeyInfo {
     @NotNull(message = "{msg://org.palestiner.keys.entity/KeyInfo.NotNull}")
     private String name;
 
+    @Column(name = "DESCRIPTION")
+    private String description;
+
+    @Secret
+    @SystemLevel
     @Column(name = "INPUT", nullable = false)
     @NotNull(message = "{msg://org.palestiner.keys.entity/KeyInfo.NotNull}")
     private String input;
@@ -97,5 +102,13 @@ public class KeyInfo {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
