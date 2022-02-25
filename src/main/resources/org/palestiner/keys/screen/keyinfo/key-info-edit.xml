@@ -38,8 +38,9 @@
     <layout spacing="true" expand="editActions">
         <form id="form" dataContainer="keyInfoDc">
             <column width="350px">
-                <textField id="nameField" property="name"/>
-                <textField id="inputField" property="input"/>
+                <textField id="nameField" property="name" trim="true"/>
+                <textArea id="descriptionField" property="description" trim="true"/>
+                <textField id="inputField" property="input" trim="true"/>
                 <entityComboBox id="projectField" property="project"
                                 nullOptionVisible="false"
                                 dataContainer="keyInfoDc"

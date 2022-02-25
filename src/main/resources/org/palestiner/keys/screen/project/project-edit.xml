@@ -41,6 +41,7 @@
         <hbox id="editActions" spacing="true">
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
             <button id="closeBtn" action="windowClose"/>
+            <checkBox id="editEnabled" caption="msg://editEnabled" align="MIDDLE_LEFT"/>
         </hbox>
     </layout>
 </window>
