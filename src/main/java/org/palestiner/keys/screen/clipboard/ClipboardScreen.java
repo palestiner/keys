@@ -28,7 +28,7 @@ public class ClipboardScreen extends Screen {
         String caption = (String) options.getParams().get("caption");
         value.setValue(message);
         value.setEditable(false);
-        value.setWidth((message.length() * 10) + "");
+        value.setWidth((message.length() * 10 + 100) + "");
         getWindow().setCaption(caption);
     }
 
