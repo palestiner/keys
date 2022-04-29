@@ -34,29 +34,23 @@ public class KeyInfoBrowse extends StandardLookup<KeyInfo> {
 
     @Install(to = "keysInfoTable.qas", subject = "columnGenerator")
     private Component keysInfoTableQasColumnGenerator(KeyInfo keyInfo) {
-        Button button = uiComponents.create(Button.class);
-        String key = keyInfo.getProject().getQas();
-        button.addClickListener(clickListener(keyInfo.getInput(), key, "QAS"));
-        button.setCaption(messageBundle.getMessage("keyInfoBrowse.showBtn"));
-        return button;
+        return getButton(keyInfo.getProject().getQas(), keyInfo, "QAS");
     }
 
 
     @Install(to = "keysInfoTable.dev", subject = "columnGenerator")
     private Component keysInfoTableDevColumnGenerator(KeyInfo keyInfo) {
-        Button button = uiComponents.create(Button.class);
-        String key = keyInfo.getProject().getDev();
-        button.addClickListener(clickListener(keyInfo.getInput(), key, "DEV"));
-        button.setCaption(messageBundle.getMessage("keyInfoBrowse.showBtn"));
-
-        return button;
+        return getButton(keyInfo.getProject().getDev(), keyInfo, "DEV");
     }
 
     @Install(to = "keysInfoTable.prd", subject = "columnGenerator")
     private Component keysInfoTablePrdColumnGenerator(KeyInfo keyInfo) {
+        return getButton(keyInfo.getProject().getPrd(), keyInfo, "PRD");
+    }
+
+    private Button getButton(String key, KeyInfo keyInfo, String screenCaption) {
         Button button = uiComponents.create(Button.class);
-        String key = keyInfo.getProject().getPrd();
-        button.addClickListener(clickListener(keyInfo.getInput(), key, "PRD"));
+        button.addClickListener(clickListener(keyInfo.getInput(), key, screenCaption));
         button.setCaption(messageBundle.getMessage("keyInfoBrowse.showBtn"));
         return button;
     }
