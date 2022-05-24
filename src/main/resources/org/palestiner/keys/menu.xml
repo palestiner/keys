@@ -13,7 +13,9 @@
         <item screen="Dictionary.browse"
               caption="msg://org.palestiner.keys.screen.dictionary/dictionaryBrowse.menu"
               icon="BOOK"/>
-        <item screen="Attachment.browse" caption="msg://org.palestiner.keys.screen.attachment/attachmentBrowse.menu"/>
+        <item screen="Attachment.browse"
+              caption="msg://org.palestiner.keys.screen.attachment/attachmentBrowse.menu"
+              icon="FILE"/>
     </menu>
     <menu id="administration" caption="msg://org.palestiner.keys/menu.admin">
         <item screen="User.browse"
