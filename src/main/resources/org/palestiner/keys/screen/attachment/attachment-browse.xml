@@ -32,8 +32,18 @@
                 width="800"/>
     <layout expand="attachmentsTable" spacing="true">
         <filter id="filter"
+                collapsed="true"
                 dataLoader="attachmentsDl">
             <properties include=".*"/>
+            <configurations>
+                <configuration id="propertyConfiguration"
+                               default="true"
+                               name="DescriptionFilter">
+                    <propertyFilter property="description"
+                                    operation="CONTAINS"
+                                    operationEditable="true"/>
+                </configuration>
+            </configurations>
         </filter>
         <groupTable id="attachmentsTable"
                     width="100%"
